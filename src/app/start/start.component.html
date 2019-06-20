@@ -1,0 +1,66 @@
+
+ 
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Gornalgy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="" (click)="getnews()">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="follow" (click)="reovenews()">follow news</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">my news</a>
+      </li>
+      
+      <li ngbDropdown class="nav-item dropdown" > 
+          <a class="nav-link dropdown-toggle"  ngbDropdownToggle 
+          id="dropdown01" data-toggle="dropdown" 
+          aria-haspopup="true" aria-expanded="false" >profile</a>
+          <div  ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdown01" >
+              <a class="dropdown-item" ngbDropdownItem >Following <span class="badge badge-light">2</span></a>
+             
+    
+              <a class="dropdown-item"  routerLink="login" >Log out</a>
+            </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+
+      <a style="color: white" class="text-uppercase" routerLink="login" (click)="reovenews()">profile</a>
+
+
+    </form>
+  </div>
+  
+
+  
+    
+</nav>
+
+
+<nav mat-tab-nav-bar id ="tabs">
+    
+    <a  mat-tab-link style="font-size: 20px" 
+    *ngFor="let link of navLinks"
+    [routerLink]="['/'+link.path]"
+    routerLinkActive #rla="routerLinkActive"
+    [routerLinkActiveOptions]="{exact:true}"
+    [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+  
+  <router-outlet></router-outlet>
+
+<main role="main" class="container">
+
+
+</main>

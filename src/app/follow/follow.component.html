@@ -1,0 +1,22 @@
+<div class="my-3 p-3 bg-white rounded shadow-sm" >
+  <h6 class="border-bottom border-gray pb-2 mb-0">News </h6>
+  <div class="media text-muted pt-3" *ngFor="let paper of papers">
+    <img class="bd-placeholder-img mr-2 rounded" width="60" height="60" src={{paper.img}} preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+    
+    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <strong class="text-gray-dark" style="font-size: large;" >{{paper.name}}</strong>
+        
+        <a style="display: block" id={{paper.link}} (click)="follow(paper.link,paper.name)" class="btn btn-primary btn-lg active" 
+        role="button" aria-pressed="true">Follow</a>
+        <a style="display: none"  id={{paper.name}} (click)="unfollow(paper.link,paper.name)"  class="btn btn-primary btn-lg active" 
+        role="button" aria-pressed="true">Un Follow</a>
+      </div>
+      <span class="d-block">{{paper.link}}</span>
+    </div>
+  </div>
+  
+  <small class="d-block text-right mt-3">
+    <a>All suggestions</a>
+  </small>
+</div>
